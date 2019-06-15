@@ -27,21 +27,23 @@ export class AddItem extends React.Component {
     render() {
         return (
             <div>
-                <span style={{ marginRight: "1vh" }}>
+                <span style={{ marginRight: "1vh",fontSize:'20px' }}>
                     Add new item to the list:
                 </span>
                 <input
-                    style={{ marginRight: "1vh" }}
+                    style={{ marginRight: "1vh",textAlign:'center',border:'1px solid black' }}
                     placeholder="title"
                     value={this.state.title}
                     onChange={e => this.onChange(e)}
                 />
                 <button
+                style={{border: '1px solid black',color:'black'}}
                     onClick={this.onClick}
                     disabled={this.state.title === ""}
                 >
                     Add item
                 </button>
+
             </div>
         );
     }

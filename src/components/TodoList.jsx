@@ -1,6 +1,7 @@
 import React from "react";
 import { AddItem } from "./AddItem";
 import { TodoItem } from "./TodoItem";
+import axios from 'axios';
 
 // Homework 3: fetch data from https://jsonplaceholder.typicode.com/todos
 
@@ -9,17 +10,13 @@ export class TodoList extends React.Component {
         super();
         // Step 1: remove the static data from the state
         this.state = {
-            items: [
-                {
-                    title: "buy things",
-                    completed: false
-                },
-                {
-                    title: "learn react",
-                    completed: true
-                }
-            ]
-        };
+            items: []
+        }
+    }
+        componentDidMount () {
+            axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
+            .then(res => this.setState({items: res.data}))
+        
     }
     
     // Step 2: use componentDidMount to fetch the data from the url https://jsonplaceholder.typicode.com/todos
